@@ -5,7 +5,7 @@ Video:
 
 [![View the making of here](https://img.youtube.com/vi/axagDO8AKSI/0.jpg)](https://www.youtube.com/watch?v=axagDO8AKSI)
 
-Here's how to burn a bootloader to an Attiny85 using an Arduino UNO:
+Veja como gravar um bootloader no digispark usando um Arduino UNO:
 
 1. Instale o Arduino IDE https://www.arduino.cc/en/Main/Software
 2. Instale os drivers digistump https://github.com/digistump/DigistumpArduino/releases
