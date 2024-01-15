@@ -1,5 +1,5 @@
-# Attiny85-Bootloader-Tutorial
-I recently got one of those cheap chinese attiny USB socket boards and discovered that in order to use the arduino IDE, you need to burn a bootloader onto it. I found a few tutorials online, but a lot of them felt incomplete or included redundant steps. 
+# Tutorial Digispark Bootloader
+Recentemente, comprei uma daquelas placas de soquete USB chinesas baratas e descobri que, para usar o IDE do Arduino, você precisa gravar um bootloader nela. Encontrei alguns tutoriais online, mas muitos deles pareciam incompletos ou incluíam etapas redundantes.
 
 Video:
 
@@ -7,19 +7,19 @@ Video:
 
 Here's how to burn a bootloader to an Attiny85 using an Arduino UNO:
 
-1. Install the Arduino IDE https://www.arduino.cc/en/Main/Software
-2. Install the digistump drivers https://github.com/digistump/DigistumpArduino/releases
-3. Open the arduino IDE and go to file > preferences.
-4. Add http://digistump.com/package_digistump_index.json to the additional boards manager URLs.
-5. Go to tools > board > boards manager.
-6. Search for digistump, and install Digistump AVR boards.
-7. Connect your arduino uno via USB.
-8. Go to file > examples > 11. ArduinoISP > ArduinoISP to open the ArduinoISP sketch.
-9. Hit the arrow button to upload it to your arduino.
-10. Unplug your arduino and get your Attiny85, breadboard, some wires, and a 10uF capacitor.
-11. Wire the following:
+1. Instale o Arduino IDE https://www.arduino.cc/en/Main/Software
+2. Instale os drivers digistump https://github.com/digistump/DigistumpArduino/releases
+3. Abra o IDE do Arduino e vá para arquivo > preferências.
+4. Adicione http://digistump.com/package_digistump_index.json aos URLs adicionais do gerenciador de placas.
+5. Vá para ferramentas > quadro > gerenciador de quadros.
+6. Procure por digistump e instale as placas Digistump AVR.
+7. Conecte seu arduino uno via USB.
+8. Vá para arquivo > exemplos > 11. ArduinoISP > ArduinoISP para abrir o esboço do ArduinoISP.
+9. Aperte o botão de seta para carregá-lo em seu Arduino.
+10. Desconecte seu arduino e pegue seu Attiny85, placa de ensaio, alguns fios e um capacitor de 10uF.
+11. Conecte o seguinte:
 
-| Attiny physical pin | Arduino GPIO/Pin |
+| Digispark pin | Arduino GPIO/Pin |
 | --- | --- |
 | 1 | 10 |
 | 4 | GND |
@@ -28,22 +28,21 @@ Here's how to burn a bootloader to an Attiny85 using an Arduino UNO:
 | 7 | 13 |
 | 8 | 5V |
 
-Also connect a 10uF capacitor between arduino RST and arduino GND. If using an electrolytic capacitor, put anode on RST and cathode on GND.
+Conecte também um capacitor de 10uF entre o arduino RST e o arduino GND. Se estiver usando um capacitor eletrolítico, coloque o ânodo no RST e o cátodo no GND.
 
-12. Connect your arduino again via USB and go into the Arduino IDE. Check what port it's connected to. In my case it's COM3.
-13. Edit the burn_attiny85_bootloader.bat file from this repository (right click and edit). Edit the part that says -PCOM22 to match your port. In my case since I use COM3, I'll edit it to -PCOM3
-14. Save and copy both the bat file and t85_default.hex to your arduino install directory.
-15. Run the bat file, and it should now burn the bootloader to your attiny85.
+12. Conecte seu arduino novamente via USB e entre no IDE do Arduino. Verifique a qual porta ele está conectado. No meu caso é COM3.
+13. Edite o arquivo burn_attiny85_bootloader.bat deste repositório (clique com o botão direito e edite). Edite a parte que diz -PCOM22 para corresponder à sua porta. No meu caso, como uso COM3, vou editá-lo para -PCOM3
+14. Salve e copie o arquivo bat e t85_default.hex para o diretório de instalação do Arduino.
+15. Execute o arquivo bat e agora ele deve gravar o bootloader em seu attiny85.
 
-# Uploading via arduino
-After adding the bootloader, you can now upload via arduino. There's a testsketch in this repo if you just want to blink the debug LED.
+# Fazendo upload via arduino
+Depois de adicionar o bootloader, agora você pode fazer upload via arduino. Há um teste neste repositório se você quiser apenas piscar o LED de depuração.
 
-1. Write your sketch as usual.
-2. Connect your attiny to your USB socket board. But don't plug it to the computer yet.
-3. In the arduino IDE, pick Digispark (Default - 16.5mhz). Port doesn't matter.
-4. Hit upload sketch.
-5. After compiling, the IDE will ask you to plug your attiny in. Do that, and the sketch will upload.
-
+1. Escreva seu esboço normalmente.
+2. Conecte seu attiny à placa de soquete USB. Mas não o conecte ao computador ainda.
+3. No IDE do Arduino, escolha Digispark (padrão - 16,5 MHz). Porto não importa.
+4. Clique em carregar esboço.
+5. Após a compilação, o IDE solicitará que você conecte seu attiny. Faça isso e o esboço será carregado.
 
 Credits & sources:
 https://www.youtube.com/watch?v=FI3s4d2I1eQ
